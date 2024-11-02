@@ -11,6 +11,8 @@ services:
             - db_password
 
     merchant:
+        # TODO mount config files:
+        # - /etc/taler/conf.d/exchange-coins.conf
         build: exchange
         environment:
             POSTGRES_PASSWORD_FILE: /run/secrets/db_password

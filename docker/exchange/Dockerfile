@@ -6,8 +6,8 @@ RUN apt update && apt install -y wget
 RUN echo 'deb [signed-by=/etc/apt/keyrings/taler-systems.gpg] https://deb.taler.net/apt/debian bookworm main' > /etc/apt/sources.list.d/taler.list
 RUN wget -O /etc/apt/keyrings/taler-systems.gpg https://taler.net/taler-systems.gpg
 
-RUN apt update && apt install -y taler-exchange
-RUN apt install -y postgresql-client  # TODO remove
+RUN apt update && apt install -y taler-exchange taler-harness postgresql-client
+RUN rm /etc/taler/conf.d/exchange-coins.conf  # We recreate this file in run-service.sh
 
 COPY run-service.sh /scripts/
 

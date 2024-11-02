@@ -11,8 +11,12 @@ cat >/etc/taler/secrets/exchange-db.secret.conf <<EOF
 CONFIG=${POSTGRES_URL}
 EOF
 
-sleep 10  # TODO is there an other way to check if the database is running?
+# sleep 10  # TODO is there an other way to check if the database is running?
 
 taler-exchange-dbinit -c /etc/taler/secrets/exchange-db.secret.conf
+# psql $POSTGRES_URL -c '\dt'  # TODO remove
 
-psql $POSTGRES_URL -c '\dt'  # TODO remove
+if [ ! -f /etc/taler/conf.d/exchange-coins.conf ]; then
+    taler-harness deployment gen-coin-config --min-amount TAUSCHY:0.01 --max-amount TAUSCHY:100 > /etc/taler/conf.d/exchange-coins.conf
+fi
+cat /etc/taler/conf.d/exchange-coins.conf
