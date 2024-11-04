@@ -19,4 +19,8 @@ taler-exchange-dbinit -c /etc/taler/secrets/exchange-db.secret.conf
 if [ ! -f /etc/taler/conf.d/exchange-coins.conf ]; then
     taler-harness deployment gen-coin-config --min-amount TAUSCHY:0.01 --max-amount TAUSCHY:100 > /etc/taler/conf.d/exchange-coins.conf
 fi
-cat /etc/taler/conf.d/exchange-coins.conf
+
+sed -i 's/#currency = KUDOS/currency = TAUSCHY/g' /etc/taler/taler.conf
+sed -i 's/#currency_round_unit = KUDOS:0.01/currency_round_unit = TAUSCHY:0.01/g' /etc/taler/taler.conf
+
+cat /etc/taler/taler.conf
