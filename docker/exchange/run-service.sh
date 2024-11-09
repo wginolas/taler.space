@@ -23,4 +23,6 @@ fi
 sed -i 's/#currency = KUDOS/currency = TAUSCHY/g' /etc/taler/taler.conf
 sed -i 's/#currency_round_unit = KUDOS:0.01/currency_round_unit = TAUSCHY:0.01/g' /etc/taler/taler.conf
 
-cat /etc/taler/taler.conf
+sed -i "s/# MASTER_PUBLIC_KEY =$/MASTER_PUBLIC_KEY = ${MASTER_PUBLIC_KEY}/g" /etc/taler/conf.d/exchange-business.conf
+
+cat /etc/taler/conf.d/exchange-business.conf

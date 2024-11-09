@@ -3,5 +3,10 @@
     "label": "docker compose up --build",
     "command": "docker compose up --build",
     "cwd": "docker"
-  }
+  },
+    {
+    "label": "offline-siging-key",
+    "command": "docker compose up --build",
+    "cwd": "docker/offline-signing-key"
+    }
 ]

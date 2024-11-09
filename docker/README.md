@@ -1,4 +1,4 @@
-Next step: https://docs.taler.net/taler-exchange-manual.html#sign-keys
+Next step: https://docs.taler.net/taler-exchange-manual.html#setting-up-the-offline-signing-key
 
 Do I need an offline signing key? https://docs.taler.net/taler-exchange-manual.html#setting-up-the-offline-signing-key
 

@@ -16,6 +16,7 @@ services:
         build: exchange
         environment:
             POSTGRES_PASSWORD_FILE: /run/secrets/db_password
+            MASTER_PUBLIC_KEY: R5YAJ3NR5ZBTR43WYGJ6GBMEXJBMFMW4F7N2467ZV83971Y2VCE0
         secrets:
             - db_password
         depends_on:
